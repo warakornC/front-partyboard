@@ -1,27 +1,25 @@
 import { useState } from "react";
-import Button from "../components/Button";
-import ModalLogin from "../components/ModalsLogin";
-import LoginForm from "../auth/LoginForm";
+import LoginContainer from "../components/LoginContainer";
+import IMG from "../components/photos";
 
 export default function HomePage() {
-    const [open,setOpen] = useState(false)
-    return <div className="m-auto flex justify-between min-h-768 w-768">
-        <div className="flex justify-between">
-            <div className="font-size-64">
+        return <div className="flex-col min-h-100% w-100%">
+        <div className="flex justify-between w-100% mt-2">
+            <div className="text-6xl">
                 <div>Your Community</div>
-                <div className="font-bold">Your Choice</div>
+                <div className="font-bold text-5xl">Your Choice</div>
             </div>
-            <div>
-                <Button onClick={ () =>setOpen(true)}>Log in</Button>
+            <div className="w-15">
+                <LoginContainer />
                 </div>
-                {open && (<ModalLogin onClose={() =>setOpen(false)}><LoginForm /></ModalLogin>)}
-           
+                          
         </div>
-        <div>
-            <a></a>
-            <a></a>
-            <a></a>
-            <a></a>
+        <div className="flex">
+            <a href='#'> <IMG link={'../../access/valorant.jpg'}></IMG></a>
+            <a href='#'><IMG link={'../../access/fifa-online4.png'}></IMG></a>
+            <a href='#'><IMG link={'../../access/LOL.jpg'}></IMG></a>
+            <a href='#'><IMG link={'../../access/Dragonica.jpg'}></IMG></a>
+            
         </div>
     </div>
 }

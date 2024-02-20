@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { getToken } from "../../../utils/local-storage";
 
+import * as authApi from "../../../api/auth"
+import * as userApi from "../../../api/user"
 export const AuthContext = createContext();
 
 export default function AuthContextProvider({children}) {

@@ -1,9 +1,10 @@
 
 
-export default function Button({ children , onClick }){
+export default function Button({ children , onClick,width, type }){
 return <button 
-type="button" 
-className="text-white
+type={type}
+
+className={`text-white
  bg-olive-500
   hover:bg-olive-700 
   focus:ring-4
@@ -13,7 +14,7 @@ className="text-white
      dark:bg-olive-600
       dark:hover:bg-olive-700 
       focus:outline-none
-       dark:focus:ring-olive-800" 
+       dark:focus:ring-olive-800 w-${width}`}
        onClick={onClick}>
         {children}</button>
 }
