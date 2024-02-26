@@ -32,10 +32,11 @@ export default function RegisterForm({ onSuccess }) {
       if (validateError) {
         return setError(validateError);
       }
-      // delete input.confirmPassword
+      
       await register(input);
       toast.success('register successfully');
       onSuccess();
+
     } catch (err) {
       if (err.response?.data.message === 'EMAIL_IN_USE') {
         return setError({ email: 'already in use' });
@@ -117,7 +118,7 @@ export default function RegisterForm({ onSuccess }) {
           />
         </div>
         <div className="col-span-full text-center">
-          <Button type="submit" bg="green" color="white">
+          <Button  bg="green" color="white">
             Sign up
           </Button>
         </div>

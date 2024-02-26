@@ -1,8 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { getToken } from "../../../utils/local-storage";
+import { clearTOken, getToken, storeToken } from "../../../utils/local-storage";
 
 import * as authApi from "../../../api/auth"
 import * as userApi from "../../../api/user"
+import { toast } from "react-toastify";
 export const AuthContext = createContext();
 
 export default function AuthContextProvider({children}) {
@@ -38,9 +39,10 @@ export default function AuthContextProvider({children}) {
         storeToken(res.data.accessToken);
       };
     
-      const logout = () => {
+      const logout = async () => {
         setAuthUser(null);
-        clearToken();
+        clearTOken();
+        location.reload()
       };
     
       const updateUser = async user => {

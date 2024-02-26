@@ -19,16 +19,16 @@ export default function LoginForm() {
   const handleSubmitForm = async e => {
     try {
       e.preventDefault();
-      console.log('123s')
       const validationError = validateLogin(input);
       if (validationError) {
         return setError(validationError);
       }
       await login(input);
-      toast.success('login successfully');
+      location.reload()
+      // toast.success('login successfully');
     } catch (err) {
       console.log(err);
-      toast.error(err.response?.data.message);
+      // toast.error(err.response?.data.message);
     }
   };
 
@@ -49,7 +49,7 @@ export default function LoginForm() {
           />
         </div>
         <div>
-          <Input
+          <Input type="password"
             placeholder="Password"
             value={input.password}
             name="password"
@@ -63,7 +63,8 @@ export default function LoginForm() {
               Log in
             </Button>
           </div>
-          <div><Button type='button' bg="green" color="white" onClick={() => {setOpen(true)}}>
+          <div>
+            <Button type='button' bg="green" color="white" onClick={() => {setOpen(true)}}>
             Register
           </Button>
           </div>
@@ -76,6 +77,7 @@ export default function LoginForm() {
           <RegisterForm onSuccess={() => setOpen(false)} />
         </Modal>
       )}
+         
       </>
   );
 }
