@@ -7,6 +7,7 @@ import ProblemPage from "../pages/ProblemPage";
 import { RouterProvider } from "react-router-dom";
 import RedirectIfAuthenticated from "../components/RedirectAuthenticated";
 import Container from "../layouts/Container";
+import MerchantLogin from "../pages/MerchantsTest";
 
 
 const router = createBrowserRouter([
@@ -16,12 +17,13 @@ const router = createBrowserRouter([
     </RedirectIfAuthenticated>
     
 },
-{path:'/news/1/',
+{path:'/news',
 element: <><Container /><NewsPage /></>,
  },
-{path:'/share/1',element:<><Container /><SharePage /></> },
-{path:'/problem/1',element:<><Container /><ProblemPage /></>},
-{path:'/community/1',element:<><Container /><CommunityPage /></>}
+ {path:'/ss',element:<MerchantLogin /> },
+{path:'/share',element:<><Container /><SharePage /></> },
+{path:'/problem',element:<><Container /><ProblemPage /></>},
+{path:'/community',element:<><Container /><CommunityPage /></>}
     // {path:'/valorant/news/',element: <NewsPage />},
     // {path:'/valorant/share/',element: <SharePage />},
     // {path:'/valorant/problem/',element: <ProblemPage />},
